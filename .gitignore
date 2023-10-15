@@ -1,0 +1,3 @@
+src/*.pyc
+MST/models/*
+src/*.mat
