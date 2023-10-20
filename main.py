@@ -19,7 +19,7 @@ def main():
 
     ## Train Iteration
     parser.add_argument("-n",  "--niter", type=int, default=2)
-    parser.add_argument("-ns", "--nsnapshot", type=int, default=100)
+    parser.add_argument("-ns", "--nsnapshot", type=int, default=10)
     parser.add_argument("-mx", "--max_to_keep", type=int, default=10)
 
     ## Train Parameter
