@@ -58,6 +58,7 @@ numpy==1.26.1
 oauthlib==3.2.2
 opt-einsum==3.3.0
 packaging==23.1
+pandas==2.1.1
 parso==0.8.3
 pexpect==4.8.0
 pickleshare==0.7.5
@@ -70,11 +71,13 @@ protobuf==3.20.3
 psutil==5.9.5
 ptyprocess==0.7.0
 pure-eval==0.2.2
+pyarrow==13.0.0
 pyasn1==0.5.0
 pyasn1-modules==0.3.0
 Pygments==2.15.1
 pyparsing==3.1.1
 python-dateutil==2.8.2
+pytz==2023.3.post1
 pyusb==1.2.1
 pyzmq==25.1.0
 requests==2.31.0
@@ -97,6 +100,7 @@ tornado==6.3.3
 tqdm==4.66.1
 traitlets==5.7.1
 typing_extensions==4.8.0
+tzdata==2023.3
 urllib3==2.0.6
 wcwidth==0.2.5
 Werkzeug==3.0.0
