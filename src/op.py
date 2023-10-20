@@ -59,12 +59,14 @@ class op(object):
             self.load()
             print('Weight Load !!')
         except:
-            self.sess.run(tf.global_variables_initializer())
+            self.sess.run(tf.compat.v1.global_variables_initializer())
 
-        for epoch in xrange(self.niter):
+        # for epoch in range(self.niter):
+        for epoch in range(5):
             batch_idxs = len(data) // self.batch_size
 
-            for idx in xrange(0, batch_idxs):
+            # for idx in range(0, batch_idxs):
+            for idx in range(5):
                 count += 1
 
                 batch_files = data[idx * self.batch_size: (idx + 1) * self.batch_size]
@@ -78,7 +80,10 @@ class op(object):
                       % (epoch, idx, batch_idxs, train_time, loss_all, loss_c, loss_s, loss_tv))
 
                 ## Test during Training
+                print("count: ", count)
+                print(self.niter_snapshot)
                 if count % self.niter_snapshot == (self.niter_snapshot-1):
+                    print("SAVING!!!!!!!!!!!!!!!")
                     self.count = count
                     self.save()
                     self.test(Train_flag)
@@ -102,7 +107,8 @@ class op(object):
             im_output = inverse_image(im_output[0])
             # im_output = np.random.random_sample(im_output.shape) * 255
             im_output = im_output.astype(np.uint8)
-
+            print("the order of styles")
+            print(self.style_control)
             style_idx = ['{0}_{1}'.format(i, x) for i, x in enumerate(self.style_control) if not x == 0]
 
             ## Image Show & Save
@@ -111,12 +117,12 @@ class op(object):
                 train_output_dir = os.path.join(self.project_dir, 'train_result', style_name)
                 if not os.path.exists(train_output_dir):
                     os.makedirs(train_output_dir)
-                filename = fn[:-4] + '_' + str(style_idx) + '_' + str(self.count) + '_output.bmp'
+                filename = fn[:-4] + '_' + str(style_idx) + '_' + str(int(self.count)) + '_output.jpg'
                 print("trying to read image, filename: ", os.path.join(train_output_dir, filename), im_output)
                 imageio.imwrite(os.path.join(train_output_dir, filename), im_output)
             else:
                 test_output_dir = os.path.join(self.project_dir, 'test_result')
-                filename = fn[:-4] + '_' + str(style_idx) + '_output.bmp'
+                filename = fn[:-4] + '_' + str(style_idx) + '_output.jpg'
                 print(type(im_output))
                 print(im_output.shape)
                 print("trying to read image, filename: ", os.path.join('.', test_output_dir, filename), im_output)

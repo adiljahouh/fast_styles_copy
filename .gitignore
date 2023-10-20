@@ -1,3 +1,8 @@
 src/*.pyc
 MST/models/*
 src/*.mat
+*.png
+*.jpg
+*.parquet
+*.json
+MST/models/MST_13_Edith_with_Striped_Dress..model-1199.meta

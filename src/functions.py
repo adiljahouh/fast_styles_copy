@@ -3,6 +3,8 @@ import numpy as np
 import scipy.misc as scm
 import imageio
 from glob import glob
+from PIL import Image
+import numpy
 
 
 def get_image(img_path, size=None):
@@ -11,7 +13,7 @@ def get_image(img_path, size=None):
 
     img = img[:h, :w, ::-1]  # rgb to bgr
     if size:
-        img = scm.imresize(img, (size, size))
+        img = np.array(Image.fromarray(img).resize((size, size), resample=Image.BILINEAR))
     return img
 
 
