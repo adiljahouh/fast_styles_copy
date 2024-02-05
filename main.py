@@ -13,7 +13,7 @@ def main():
     parser.add_argument("-p", "--project", type=str, default="./mst")
 
     ## Train images
-    parser.add_argument("-ctd", "--content_dataset", type=str, default="/home/adil/Documents/TuE/q5/RT/fast_styles/Fast_Multi_Style_Transfer-tensorflow/MST/content")
+    parser.add_argument("-ctd", "--content_dataset", type=str, default="MST/content")
     parser.add_argument("-cts", "--content_data_size", type=int, default=256)
     parser.add_argument("-sti", "--style_image", type=str, default="images/style/0_udnie.jpg")
 

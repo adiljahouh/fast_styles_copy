@@ -7,7 +7,7 @@ from transformers import T5Tokenizer, T5ForConditionalGeneration
 import os
 import openai
 
-openai_key = "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"
+openai_key = "redacted"
 openai.api_key = openai_key
 
 table = pq.read_table("1.parquet")
